@@ -1,2 +1,0 @@
-# style_transfer
-float
