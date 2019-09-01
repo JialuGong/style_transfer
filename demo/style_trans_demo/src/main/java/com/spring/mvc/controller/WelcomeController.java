@@ -20,4 +20,9 @@ public class WelcomeController {
 	public String uploadTest() {
 		return "uploadTest";
 	}
+	
+	@RequestMapping(value="/showTest", method=RequestMethod.GET)
+	public String showTest() {
+		return "showTest";
+	}
 }

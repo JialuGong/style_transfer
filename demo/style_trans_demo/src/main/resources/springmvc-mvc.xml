@@ -38,11 +38,11 @@
 	<!-- 不处理静态资源 -->
 	<mvc:default-servlet-handler />
 
-	<!-- 上传文件时需要用到的分解层，默认将编码转为urf-8,设置最大上传容量 ,最大内存 -->
+	<!-- 上传文件时需要用到的分解层，默认将编码转为urf-8,设置最大上传容量2M ,最大内存4K -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding" value="UTF-8" />
-		<property name="maxUploadSize" value="102400000" />
+		<property name="maxUploadSize" value="20480000" />
 		<property name="maxInMemorySize" value="4096" />
 	</bean>
 

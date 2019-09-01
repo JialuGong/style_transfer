@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>uploadTest</title>
 <!--
 <script type="text/javascript"
 	src="<%=basePath%>statics/js/jquery/jquery.min.js"></script>

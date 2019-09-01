@@ -36,17 +36,17 @@ import net.sf.json.JSON;
 public class TestController {
 
 	@ResponseBody
-	@RequestMapping(value = "upload", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/upload", method = { RequestMethod.GET, RequestMethod.POST })
 	public String getRule(HttpServletRequest request, @RequestParam("file") MultipartFile file) {
 		String name = request.getParameter("name");
 		return name;
 	}
 
-	@ResponseBody
-	@RequestMapping(value="/userPhotoUplaod", method= RequestMethod.POST)
+	@RequestMapping(value="/userPhotoUplaod", method=RequestMethod.POST)
 	public String upLoad(HttpServletRequest request, HttpServletResponse response, Integer userId)
 			throws Exception {
 
+		System.out.println("Ready to saving files.");
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		// 从请求中获取到文件信息需要将请求转换为MultipartHttpServletRequest类型
@@ -66,8 +66,8 @@ public class TestController {
 		}
 
 		
-		
-		return "uploaded";
+		//转发到showTest.jsp
+		return "showTest";
 	}
 	
 	/**
