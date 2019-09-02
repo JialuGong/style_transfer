@@ -21,18 +21,18 @@
 > test.java
 
 - ### webapp文件夹目录构成
->  __WEB-INF__
-> > __views__ (放置.jsp)
+>  WEB-INF
+> > views (放置.jsp)
 > > web.xml
 > 
-> __public__
->> __css__(放置css\less文件)
->> __js__(放置js文件和组件)
->> __image__(放置图片)
->>> __origin__(用户原图片)
->>> __style__(风格图片)
->>> __result__(生成图片暂存)
->>> __save__(托管图片)
+> public
+>> css(放置css\less文件)
+>> js(放置js文件和组件)
+>> image(放置图片)
+>>> origin(用户原图片)
+>>> style(风格图片)
+>>> result(生成图片暂存)
+>>> save(托管图片)
 
 -  	#### 图片命名方式:
 ##### 用户id+系统生成时间+随机字符串.png
