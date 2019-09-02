@@ -7,6 +7,7 @@ __webapp__
 > > web.xml
 > 
 > public
+>>images(放置美化页面所用的图片,与image区分)</br>
 >> css(放置css\less文件)</br>
 >> js(放置js文件和组件)</br>
 >> image(放置图片)
