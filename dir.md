@@ -1,6 +1,6 @@
 # 文件构成与配置文档
 - ### 文件目录构成(按照Maven的组织形式):
-> pom.xml
+> pom.xml</br>
 > src
 > >main
 > >>resouces(项目资源)</br>
@@ -28,6 +28,7 @@
 > public
 >> css(放置css\less文件)</br>
 >> js(放置js文件和组件)</br>
+>> images(放置美化页面所需的图片,与image相区分)<br>
 >> image(放置图片)
 >>> origin(用户原图片)</br>
 >>> style(风格图片)</br>
