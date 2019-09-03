@@ -21,7 +21,10 @@ class LinearStyleTransfer(nn.Module):
         self.dec = decoder4()
         self.matrix = MulLayer("r41")
 
-        root = "D:/User/Desktop/proj/style_trans_demo_new/"
+        root = ""
+        for n in os.path.abspath("..").split("/")[:-1]:
+            root += (n + "/")
+            
         self.vgg.load_state_dict(torch.load(
             root + "python_package/models/vgg_r41.pth", map_location="cpu"))
         self.dec.load_state_dict(torch.load(
