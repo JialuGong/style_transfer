@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -84,25 +85,36 @@ public class TestController {
 
 		System.out.println(multipartRequest != null);
 		if (multipartRequest != null) {
-			MultipartFile file1 = multipartRequest.getFile("file1");
-			MultipartFile file2 = multipartRequest.getFile("file2");
-			System.out.println("File:\t" + file1.getOriginalFilename() + "\tType:\t" + file1.getContentType()
-					+ "\tSize:\t" + file1.getSize());
-			System.out.println("File:\t" + file2.getOriginalFilename() + "\tType:\t" + file2.getContentType()
-					+ "\tSize:\t" + file2.getSize());
 			// 原图片路径
 			String filepath1 = basePath + "src/main/webapp/public/origin_img/";
 			// 风格图片路径
 			String filepath2 = basePath + "src/main/webapp/public/style_img/";
 			// 转化后图片路径
 			String filepath3 = basePath + "src/main/webapp/public/result_img/";
-			DeleteDir.deleteDir(filepath3);
-			FileUtil.approvalFile(file1, filepath1);
-			FileUtil.approvalFile(file2, filepath2);
+			//	从request接收文件
+			MultipartFile file1 = multipartRequest.getFile("file1");
+			MultipartFile file2 = multipartRequest.getFile("file2");
+			// 将接收到的文件存储到本地
+			String newFileName1 = FileUtil.approvalFile(file1, filepath1);
+			String newFileName2 = FileUtil.approvalFile(file2, filepath2);
+			//	输出接收文件信息
+			System.out.println(file1.getOriginalFilename() + " " + file2.getOriginalFilename());
+			System.out.println(
+					"File:\t" + newFileName1 +
+					"\tType:\t" + file1.getContentType() +
+					"\tSize:\t" + file1.getSize());
+			System.out.println(
+					"File:\t" + newFileName2 +
+					"\tType:\t" + file2.getContentType() +
+					"\tSize:\t" + file2.getSize());
+
 			// 调用转换图片
 			int result = 100;
-			result = TransferImage.getTrans_img().transfer_image(filepath1 + file1.getOriginalFilename(),
-					filepath2 + file2.getOriginalFilename(), filepath3 + "res.jpg");
+			result = TransferImage.getTrans_img().transfer_image(
+					filepath1 + newFileName1,
+					filepath2 + newFileName2,
+					filepath3 + "res.jpg");
+			
 			if (result == 0) {
 				System.out.println("Transfer image successfully!");
 			} else {
