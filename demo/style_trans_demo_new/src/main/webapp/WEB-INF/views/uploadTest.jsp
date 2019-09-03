@@ -40,7 +40,7 @@
 
 			// 使用ajax异步文件上传
 			$.ajax({
-				url : util.basePath() + 'test/userPhotoUplaod',
+				url : util.basePath() + 'test/userPhotoUpload',
 				type : 'POST',
 				data : obj,
 				contentType : false,
@@ -58,7 +58,7 @@
 </head>
 <body>
 	<!-- 使用post表单提交，设置类型为：multipart/form-data -->
-	<form action="<%=basePath%>test/userPhotoUplaod"
+	<form action="<%=basePath%>test/userPhotoUpload"
 		enctype="multipart/form-data" method="POST">
 		<h2>基本form表单上传文件</h2>
 		文件一：<input type="file" name="file1" /><br /> 文件二：<input type="file"

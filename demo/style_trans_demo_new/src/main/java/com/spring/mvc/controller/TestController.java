@@ -72,7 +72,7 @@ public class TestController {
 		}
 	}
 
-	@RequestMapping(value = "/userPhotoUplaod", method = RequestMethod.POST)
+	@RequestMapping(value = "/userPhotoUpload", method = RequestMethod.POST)
 	public String upLoad(HttpServletRequest request, HttpServletResponse response, Integer userId) throws Exception {
 
 		System.out.println("-------------------------------------\nReady to saving files.");

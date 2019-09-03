@@ -25,3 +25,9 @@
 # Update v1.3.1
 
 >main.py的basePath不需要修改了
+
+# Update v1.3.2
+
+>修正了下列文件的userPhotoUpload拼写错误 </br>
+>/src/main/webapp/WEB-INF/views/uploadTest.jsp中第43、61行 </br>
+>com.spring.mvc.controller.TestController中第75行
