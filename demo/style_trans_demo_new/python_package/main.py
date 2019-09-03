@@ -1,8 +1,8 @@
 import cv2
+import os
 import sys
 import torch
 
-import numpy as np
 import pandas as pd
 
 from libs.Matrix import MulLayer
@@ -21,7 +21,10 @@ class LinearStyleTransfer(nn.Module):
         self.dec = decoder4()
         self.matrix = MulLayer("r41")
 
-        root = "D:/User/Desktop/proj/style_trans_demo_new/"
+        root = ""
+        for n in os.path.abspath("..").split("/")[:-1]:
+            root += (n + "/")
+        
         self.vgg.load_state_dict(torch.load(
             root + "python_package/models/vgg_r41.pth", map_location="cpu"))
         self.dec.load_state_dict(torch.load(
@@ -55,10 +58,8 @@ def prepare_image(path):
 
 def transfer_image(content_path, style_path, save_path):
 
-    #pd.Series(content_path).to_csv("content.csv")
     contentV = prepare_image(content_path)
 
-    #pd.Series(style_path).to_csv("style_path.csv")
     styleV = prepare_image(style_path)
 
     model = LinearStyleTransfer()
@@ -80,3 +81,4 @@ def transfer_image(content_path, style_path, save_path):
 
 if __name__ == "__main__":
     transfer_image(sys.argv[1], sys.argv[2], sys.argv[3])
+
