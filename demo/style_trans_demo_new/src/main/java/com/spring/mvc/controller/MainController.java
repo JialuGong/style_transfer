@@ -1,43 +1,28 @@
 package com.spring.mvc.controller;
 
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.mvc.TransferImage.TransferImage;
-import com.spring.mvc.entity.User;
-import com.spring.mvc.util.DeleteDir;
-import com.spring.mvc.util.FileUploadUtil;
 import com.spring.mvc.util.FileUtil;
 
 @Controller
-@RequestMapping("/test")
-public class TestController {
+public class MainController {
 	
 	public static final String basePath = "D:/User/Desktop/proj/style_trans_demo_new/";
 
@@ -132,54 +117,6 @@ public class TestController {
 		}
 		// 转发到showTest.jsp
 		return "showTest";
-	}
-
-	/**
-	 * 单个、批量文件上传
-	 * 
-	 * @param request
-	 * @param response
-	 * @param session
-	 * @param module   获取传入的模块名称
-	 * @return
-	 */
-	@RequestMapping(value = "/{module}", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public String uploadFiles(Model model, HttpServletRequest request, HttpSession session,
-			@PathVariable("module") String module) {
-
-		// 获取session中保存的用户信息
-		User user = (User) session.getAttribute("user");
-
-		// 创建list集合用于获取文件上传返回路径名
-		List<String> list = new ArrayList<String>();
-
-		try {
-
-			// 获取上传完文件返回的路径,判断module模块名称是否为空，如果为空则给default作为文件夹名
-			list = FileUploadUtil.uploadFile(request, user.getUsername(),
-					(module == null || module.length() == 0) ? "default" : module);
-			// model属性也行
-			model.addAttribute("fileUrlList", list);
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			System.err.println("上传文件发生错误=>>" + e.getMessage());
-
-		}
-		// 转发到uploadTest.jsp页面
-		return "uploadTest";
-	}
-
-	/**
-	 * 跳转至文件上传页面
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value = "/common/upload-page", method = RequestMethod.GET)
-	public String uploadTestPage() {
-
-		return "uploadTest";
 	}
 
 }

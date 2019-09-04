@@ -38,7 +38,8 @@ public class TransferImage {
 				TestController.basePath + "python_package/main.py",//path for main.py
 				content_path,
 				style_path,
-				save_path
+				save_path,
+				TestController.basePath
 		};
 
 		try {

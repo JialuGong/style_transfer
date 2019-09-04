@@ -20,7 +20,7 @@ public class FileUtil {
 			inputStream = fileContent.getInputStream();
 			// 生成随机文件名称
 			fileName = RandomStringUtils.randomAlphanumeric(8) + oriName.substring(oriName.lastIndexOf("."));
-			System.out.println("FileName: " + fileName + "\t<-- " + oriName);
+			System.out.println("FileName:\t" + fileName + "\t<--\t" + oriName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

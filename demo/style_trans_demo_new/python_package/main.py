@@ -4,6 +4,7 @@ import sys
 import torch
 
 import pandas as pd
+import numpy as np
 
 from libs.Matrix import MulLayer
 from libs.models import encoder4
@@ -13,17 +14,13 @@ from torch import nn
 
 class LinearStyleTransfer(nn.Module):
 
-    def __init__(self):
+    def __init__(self, root):
 
         super(LinearStyleTransfer, self).__init__()
 
         self.vgg = encoder4()
         self.dec = decoder4()
         self.matrix = MulLayer("r41")
-
-        root = ""
-        for n in os.path.abspath("..").split("/")[:-1]:
-            root += (n + "/")
         
         self.vgg.load_state_dict(torch.load(
             root + "python_package/models/vgg_r41.pth", map_location="cpu"))
@@ -56,13 +53,13 @@ def prepare_image(path):
     return tensor
 
 
-def transfer_image(content_path, style_path, save_path):
+def transfer_image(content_path, style_path, save_path, root):
 
     contentV = prepare_image(content_path)
 
     styleV = prepare_image(style_path)
 
-    model = LinearStyleTransfer()
+    model = LinearStyleTransfer(root)
     model.eval()
 
     print("load model successfully")
@@ -80,5 +77,5 @@ def transfer_image(content_path, style_path, save_path):
 
 
 if __name__ == "__main__":
-    transfer_image(sys.argv[1], sys.argv[2], sys.argv[3])
+    transfer_image(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
 

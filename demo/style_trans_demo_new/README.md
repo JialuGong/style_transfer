@@ -31,3 +31,7 @@
 >修正了下列文件的userPhotoUpload拼写错误 </br>
 >/src/main/webapp/WEB-INF/views/uploadTest.jsp中第43、61行 </br>
 >com.spring.mvc.controller.TestController中第75行
+
+# Update v1.3.3
+
+>main.py新增了工作目录的命令行参数
