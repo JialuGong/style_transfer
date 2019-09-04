@@ -33,10 +33,18 @@ dataType:FormData
 ```
 后端需返回的值
 ```java
-String str="occupied"
+//用户名被占用
+String str="occupied";
+//名字或者密码为空
+String str="vacant";
+//注册失败
+String str="register_success";
+//注册失败
+String str="register_fail";
+
 ```
 
-- ##### load
+- ##### login
 ajax:post
 dataType:FormData
 
@@ -49,10 +57,16 @@ dataType:FormData
 后端需返回的值
 looking forward data type:string
 ```java
+//用户名或密码为空
+String str="vacant";
 //用户名错误:
 String str="NameNotFound";
 //密码错误:
 String str="PasswordError";
+//登录成功
+String str="login_success";
+//登录失败
+String str="login_fail";
 }
 
 ```
