@@ -17,3 +17,11 @@ __webapp__
 >>> save(托管图片)<br>
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+This is a new branch for logic.
+=======
+This branch is for development.
+>>>>>>> 3038045853febafa4104119ca93de4b1190bb720
+>>>>>>> 243344ffd1b86d5c781ffb7f552f42a91cb2ef9c

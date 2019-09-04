@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<base href="<%=basePath%>" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>showTest</title>
+<script type="text/javascript">
+	var util = {
+		basePath : function basePath() {// 返回项目路径
+			var context = document.getElementsByTagName('base')[0].href;
+			return context;
+		}
+	}
+</script>
+</head>
+<body>
+	<img src="<%=basePath%>public/test_dir/transfered/res.png" />
+	
+	<%=basePath%>public/test_dir/transfered/res.png
+</body>
+</html>
