@@ -1,3 +1,9 @@
+<!-- 
+version:1.1
+description:you need to change some url 
+compared with 1.0:
+
+ -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -119,22 +125,27 @@
                                 <div id="fileName"></div>
                                 <div id="fileSize"></div>
                                 <div id="fileType"></div>
-                                <div class="col-md-12 section-heading text-center">
-                                    <label class="add btn btn-md"><!--上传1-->
+                                 <div class="col-md-12 section-heading text-center" id="img_box">
+                                    <div id="img_content1"  >
+                                    <label class="add btn btn-md" id="plus_img1"><!--上传1-->
                                         <img class="picture" id="source_img_1" src="" alt=""  height="300" width="300"/>
                                         <input type="file" style= "background-color:transparent;border:0;" name="fileToUpload" id="fileToUpload_1" onchange="file1Selected();">
                                     </label>
-                                    <label class="add btn btn-md"><!--上传2-->
+                                    <label class="add btn btn-md" id="plus_img2" ><!--上传2-->
                                         <img class="picture" id="source_img_2" src="" alt=""  height="300" width="300"/>
                                         <input type="file" style= "background-color:transparent;border:0;" name="fileToUpload" id="fileToUpload_2" onchange="file2Selected();">
                                     </label>
+                                    </div>
+                                    <div id="img_content3" style="display: none">
+                                        <img id="source_img_3" src="" height="300" width="300"/>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 section-heading text-center">
-                                        <input class="btn btn-md btn-primary" type="button" onclick="uploadFile()" value="Upload"> &nbsp;
-                                        <input class="btn btn-md btn-primary" type="button" onclick="getFile()" value="Get">
-
+                                    <input class="btn btn-md btn-primary" id="upload_btn" type="button" onclick="uploadFile()" value="转换">
+                                    <input class="btn btn-md btn-primary" id="download_btn" type="button" onclick="download()" value="下载" style="display: none">
+                                        <!--input class="btn btn-md btn-primary" type="button" onclick="getFile()" value="Get"-->
                                 </div>
                                 <div class="col-md-12 section-heading text-center"><!--还没写好接口-->
                                 <a href="#" class="facebook"><i class="icon-wechat"></i></a>

@@ -1,4 +1,13 @@
-/**
+	/**
+	 * @author:GHL
+	 * @description:upload.js(to upload user's photo) and delete the test
+	 * @howtoUse:change the url in row 103(for interface)
+	 * @version:1.1
+	 * @TODO:add function download() and add btn disabled(need to test)
+	 * @returns
+	 */
+	
+	/**
  * @author:GHL
  * @description:upload.js(to upload user's photo)
  * @howtoUse:change the url in row 80(for interface)
@@ -53,7 +62,7 @@ function file2Selected(){
 
 //图片的上传
 function uploadFile(){
-	var basePath = document.getElementsByTagName('base')[0].href;
+    var basePath = document.getElementsByTagName('base')[0].href;
     id1="fileToUpload_1";
     id2="fileToUpload_2";
     //检查图片路径是否相同,以此判断图片是否相同
@@ -72,19 +81,43 @@ function uploadFile(){
             formdata.append("file1",file1);
             formdata.append("file2",file2);
             if(!file1 || !file2){
-            	alert("error");
+                alert("error");
             }
+            /**************************************************test******************need to delete******/
+            var file=document.getElementById('fileToUpload_2').files[0];
+            var url = window.URL.createObjectURL(file);
+            //$('#img_content1').css({"margin":"0 auto","text-align":"center"});
+            //$('#img_content1').src=url;
+            $('#img_content2').css({"display":"none"});
+            $('#img_content1').css({"display":"none"});
+            $('#img_content3').css({"display":"inline"});
+            document.getElementById('source_img_3').src=url;
+            $('#upload_btn').css({"display":"none"});
+           // $('#upload_btn').disabled=true;
+            $('#download_btn').css({"display":"inline"});
+
+            /***********************************test***********************need to delete***************/
             //使用ajax上传图片
             $.ajax({
                     type:"POST",
-                    url : basePath+'test/userPhotoUpload',
+                    url : 'localhost:8080/style_transfer_demo_test/userPhotoUpload',
                     mimeType : 'multipart/form-data',
                     data:formdata,
                     contentType:false,
                     processData:false,
                     success:function(data){
+                        // 隐藏原有图片信息
+                        $('#img_content2').css({"display":"none"});
+                        $('#img_content1').css({"display":"none"});
+                        $('#img_content3').css({"display":"inline"});
+                        //隐藏并且禁用uploda_btn
+                        $('#upload_btn').css({"display":"none"});
+                        $('#upload_btn').addClass('disabled');
+                        $('#upload_btn').prop('disabled',true);
+                        //显示并允许使用
+                        $('#download_btn').css({"display":"inline"});
+                        $('#source_img_3').src=data;
 
-                        console.log(data);
                     },
                     error:function(){
                         alert("图片上传错误,请重现上传");
@@ -111,4 +144,8 @@ function uploadComplete(evt) {
 //图片上传的错误提示
 function uploadFailed(evt) {
     alert("There was an error attempting to upload the file.");
+}
+
+function download(){
+
 }
