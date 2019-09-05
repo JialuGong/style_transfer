@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>public/css/signin.css">
     <link rel="stylesheet" href="<%=basePath%>public/css/bootstrap.css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <script src="<%=basePath%>public/../static/js/vue.min.js"></script>
+    <script src="<%=basePath%>public/js/vue.min.js"></script>
     <!-- Modernizr JS -->
     <script src="<%=basePath%>public/js/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
@@ -159,11 +159,13 @@
                                             <input type="password" id="inputCheckPassword" class="form-control" placeholder="确认密码" required>
                                         </div>
                                     </div>
-                                    <button class="btn btn-md btn-primary btn-block" onclick="register()" type="submit"><e class="s2">注册</e></button>
+                                    
+                                    
                                 </div>
 
                                 <!-- <p class="mt-5 mb-3 text-muted">&copy; 2019</p> -->
                             </form>
+                            <button class="btn btn-md btn-primary btn-block" onclick="register()"><e class="s2">注册</e></button>
                         </div>
                     </h1>
                 </div>

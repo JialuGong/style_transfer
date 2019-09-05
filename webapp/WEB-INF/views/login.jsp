@@ -71,6 +71,7 @@ doing:you need to add basePath(change the url of css and js )
 </style>
 </head>
 <body>
+<base href="<%=basePath%>" />
 <script src="<%=basePath%>publilc/js/login.js"></script>
 <header role="banner" id="fh5co-header">
     <div class="container">

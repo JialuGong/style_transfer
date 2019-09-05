@@ -73,6 +73,7 @@ compared with 1.0:
 </head>
 
 <body>
+<base href="<%=basePath%>" />
 <header role="banner" id="fh5co-header">
     <div class="container">
         <div class="row">

@@ -81,6 +81,7 @@
 </head>
 
 <body>
+<base href="<%=basePath%>" />
 <script src="<%=basePath%>public/js/show.js"></script>
 <header role="banner" id="fh5co-header">
     <div class="container">
