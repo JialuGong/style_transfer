@@ -22,8 +22,12 @@ __webapp__
 - login.js :添加url
 - register.js :添加url
 
+###### done:
+- 修改了upload.jsp 和 upload.js
+
 ###### todo:
-- 修改upload界面,对转换后的图片进行展示
+- 修改upload界面,对转换后的图片进行展示(done)
 - 修改部分jsp界面的跳转
+ 
 
 
