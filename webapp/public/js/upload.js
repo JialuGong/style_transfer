@@ -1,3 +1,11 @@
+/**
+ * @author:GHL
+ * @description:upload.js(to upload user's photo)
+ * @howtoUse:change the url in row 80(for interface)
+ * @version:1.0
+ * @returns
+ */
+
 //检验图片格式是否正确的函数
 function examine(id){
     var file=document.getElementById(id).files[0];

@@ -201,7 +201,7 @@
 
 <div id="container">
 
-    <div id="text" onclick="location.href='<%=basePath%>welcome/upload'">
+    <div id="text" onclick="location.href='<%=basePath%>test/upload.jsp'">
         <h1 id="h1">style transfer</h1>
         <br />
         <h2 id="h2">Welcome to use</h2>
