@@ -16,4 +16,14 @@ __webapp__
 >>> result(生成图片暂存)</br>
 >>> save(托管图片)<br>
 
+#### 使用说明
+###### 需要修改的地方:
+- upload.js :添加url
+- login.js :添加url
+- register.js :添加url
+
+###### todo:
+- 修改upload界面,对转换后的图片进行展示
+- 修改部分jsp界面的跳转
+
 
